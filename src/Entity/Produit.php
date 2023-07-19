@@ -13,19 +13,19 @@ class Produit
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     private ?string $name = null;
 
     #[ORM\Column]
     private ?int $prix = null;
 
     #[ORM\Column]
-    private ?int $quantité = null;
+    private ?int $quantite = null;
 
     #[ORM\Column(length: 255)]
     private ?string $composition = null;
 
-    #[ORM\Column(length: 2500)]
+    #[ORM\Column(length: 2000)]
     private ?string $resume = null;
 
     public function getId(): ?int
@@ -57,14 +57,14 @@ class Produit
         return $this;
     }
 
-    public function getQuantité(): ?int
+    public function getQuantite(): ?int
     {
-        return $this->quantité;
+        return $this->quantite;
     }
 
-    public function setQuantité(int $quantité): static
+    public function setQuantite(int $quantite): static
     {
-        $this->quantité = $quantité;
+        $this->quantite = $quantite;
 
         return $this;
     }

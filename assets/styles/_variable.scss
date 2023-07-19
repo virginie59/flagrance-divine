@@ -1,0 +1,19 @@
+$golden: #fde12f;
+$black: #000000;
+$yellow: #fbb625;
+$red: #ff0000;
+$blue: #8c92bb;
+
+$primary: $yellow;
+$primary-inverse : $blue;
+$secondary : $black;
+$secondary-inverse : $red;
+$tertiary : $golden;
+
+$theme-colors: (
+    "primary": $primary,
+    "primary-inverse": $blue,
+    "secondary": $secondary,
+    "secondary-inverse": $red,
+    "tertiary": $tertiary
+);
