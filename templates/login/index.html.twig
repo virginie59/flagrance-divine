@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block body %}
-<h1 class="visually-hidden">Inscription</h1>
+<h1 class="text-center m-3">Inscription</h1>
     <div class="my-auto mx-auto w-100  ">
         <div class=" mx-auto   col-10 offset-lg-3 col-lg-4  position-relative">
             <div class=" position-relative    overflow-hidden rounded  z-0">
-             <div class="position-relative bg-black bg-opacity-25  py-4">
-                        <div class="mx-5 my-auto row">
-                            <div class=" col-7 col-lg-9 col-xl-7 mx-auto text-white">
+             <div class="position-relative bg-primary-inverse  py-4">
+                        <div class="mx-5 my-auto row ">
+                            <div class=" col-7 col-lg-9 col-xl-7 mx-auto text-secondary">
                                 {{ form_errors(registrationForm) }}
                                 {{ form_start(registrationForm) }}
                                 
@@ -27,7 +27,7 @@
                                 {{ form_row(registrationForm.plainPassword, {
                                     label: 'Mot de passe :'
                                 }) }}
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-center mt-3">
                                     <button type="submit" class="btn btn-primary ">S'inscrire</button>
                                 </div>
 
@@ -42,24 +42,25 @@
             </div>
         </div>
     </div>
-    
-	<h1 class="visually-hidden">Connexion</h1>
-	<div class="my-auto mx-auto w-100 ">
+    <div>
+	<h1 class=" text-center text-secondary m-3">Connexion</h1>
+    </div>
+	<div class="my-auto mx-auto w-100 mb-3 ">
 		<div class=" mx-auto   col-10 offset-lg-3 col-lg-4  position-relative">
 			<div class=" position-relative    overflow-hidden rounded  z-0">
-				<div class="bg-black bg-opacity-25">
-					<div class="position-relative bg-black bg-opacity-25  py-4">
-						<form action="{{ path('app_login') }}" method="post" class=" mb-5 d-flex flex-column align-items-center ">
+				<div class="bg-primary-inverse">
+					<div class="position-relative py-3 ">
+						<form action="{{ path('app_login') }}" method="post" class=" mb-3 d-flex flex-column align-items-center ">
 							<div class="mb-3">
-								<label class="text-primary-inverse" for="username">Email :</label>
+								<label class="text-secondary" for="username">Email :</label>
 								<input class="form-control  text-center" type="text" id="username" name="_username" value="">
 							</div>
 							<div class="mb-3">
-								<label class="text-primary-inverse" for="password">Mot de passe :</label>
+								<label class="text-secondary" for="password">Mot de passe :</label>
 								<input class="form-control text-center" type="password" id="password" name="_password">
 								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 							</div>
-							<button class="btn btn-primary" type="submit">Se connecter</button>
+							<button class="btn btn-primary mt-3" type="submit">Se connecter</button>
 						</form>
 
 					</div>

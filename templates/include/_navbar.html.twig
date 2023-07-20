@@ -1,75 +1,75 @@
-<nav class="navbar navbar-expand-lg bg-yellow justify-content-center p-0">
-    <div class="container-fluid flex-column flex-lg-row">
-     <img class="logo" src="{{asset('build/img/logo.png') }}" alt="Logo">
-      <div id="menuToggle" class="burger navbar-toggler mt-3 mx-auto" type="button" data-bs-toggle="collapse"
-             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-             aria-label="Ouvrir le menu">
-            <input id="checkbox" type="checkbox">
-            <label class="toggle" for="checkbox">
-                <div class="bar bar--top"></div>
-                <div class="bar bar--middle"></div>
-                <div class="bar bar--bottom"></div>
-            </label>
-        </div>
-        <div class="navdown collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-            <ul class="navbar-nav mt-2 d-flex flex-row justify-content-around ">
-                <li class="nav-item">
-                 <a class=" mid-link nav-link active px-2 px-lg-4 text-primary-inverse" aria-current="page"
-                       href="{{ path('app_login') }}">Compte</a>
-                </li>
-                <li class="nav-item">
-                    <a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="#">Panier</a>
-                </li>
-            </ul>
-        </div>
-        <ul class="user d-lg-flex flex-lg-column align-items-lg-end me-lg-0 w-25 list-unstyled">
-            <li class="nav-item dropdown navbar-collapse collapse list-unstyled pt-3 justify-content-end"
-                id="navbarNavDropdown">
-                {% if app.user %}
-                    <span
-                       class="my-auto me-3 text-white text-decoration-none">Bonjour {{ app.user.firstname }}</span>
-                {% endif %}
-                   
-                <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-center bg-primary-inverse mt-3">
-                    
-                     <li>
-                            <a class="dropdown-item text-primary" href="#">Parfum Femme</a>
+<nav class="navbar navbar-expand-lg bg-primary justify-content-center p-0">
+	<div class="container-fluid flex-column flex-lg-row">
+		<img class="logo" src="{{asset('images/logo.png') }}" alt="Logo">
+		<div id="menuToggle" class="burger navbar-toggler mt-3 mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Ouvrir le menu">
+			<input id="checkbox" type="checkbox">
+			<label class="toggle" for="checkbox">
+				<div class="bar bar--top"></div>
+				<div class="bar bar--middle"></div>
+				<div class="bar bar--bottom"></div>
+			</label>
+		</div>
+		<div class="navdown collapse navbar-collapse justify-content-start" id="navbarNavDropdown">
+			<ul class="navbar-nav mt-2 d-flex flex-row justify-content-around ">
+				<li class="nav-item">
+					<a class=" mid-link nav-link active px-2 px-lg-4 text-primary-inverse" aria-current="page" href="{{ path('app_login') }}">Compte</a>
+				</li>
+				<li class="nav-item">
+					<a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="#">Panier</a>
+				</li>
+			</ul>
+		</div>
+		<div class="text-center text-primary-inverse">
+			<h1>Flagrance divine</h1>
+            </div>
+			{% if app.user %}
+				<span class="my-auto me-3 text-white text-primary-inverse">Bonjour
+					{{ app.user.firstname }}</span>
+			{% endif %}
+			<ul class=" ">
+				<li class="nav-item dropdown navbar-collapse collapse list-unstyled pt-3 justify-content-end" id="navbarNavDropdown">
 
-                        </li>
-                     <li>
-                            <a class="dropdown-item text-primary" href="#">Parfum Homme</a>
+					<ul class="dropdown-menu dropdown-menu-center bg-primary-inverse mt-3">
 
-                        </li>
-                     <li>
-                            <a class="dropdown-item text-primary" href="#">Collection Soins</a>
+						<li>
+							<a class="dropdown-item text-primary" href="#">Parfum Femme</a>
 
-                        </li>
-                     <li>
-                            <a class="dropdown-item text-primary" href="#">Collection Maison </a>
+						</li>
+						<li>
+							<a class="dropdown-item text-primary" href="#">Parfum Homme</a>
 
-                        </li>
-                        <li>
-                            <a class="dropdown-item text-primary" href="#">Contact</a>
+						</li>
+						<li>
+							<a class="dropdown-item text-primary" href="#">Collection Soins</a>
 
-                        </li>
-                        <li>
-                            <a class="dropdown-item text-primary" href="#">Livre d'or</a>
-                        </li>
-                       
-                            <li>
-                                <a class="dropdown-item text-primary" href="{{ path('app_admin') }}">Administration</a>
-                            </li>
-                       
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item text-primary" href="#">Deconnexion</a>
-                        </li>
-                   
-                        
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
+						</li>
+						<li>
+							<a class="dropdown-item text-primary" href="#">Collection Maison
+							</a>
+
+						</li>
+						<li>
+							<a class="dropdown-item text-primary" href="#">Contact</a>
+
+						</li>
+						<li>
+							<a class="dropdown-item text-primary" href="#">Livre d'or</a>
+						</li>
+
+						<li>
+							<a class="dropdown-item text-primary" href="{{ path('app_admin') }}">Administration</a>
+						</li>
+
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li>
+							<a class="dropdown-item text-primary" href="{{ path('app_logout') }}">Deconnexion</a>
+						</li>
+
+
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
