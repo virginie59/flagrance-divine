@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil
+{% endblock %}
+
+{% block body %}
+
+
+<h2 class="text-black">Mon profil</h2></section>{% if app.user %}
+<section class="container">
+	<div class="row mx-3">
+		<div class="col-lg-4 offset-lg-4 mt-3 bg-primary-inverse p-3 border-2 rounded text-center">
+
+			<div class=" mb-3">
+				<label for="validationCustom01" class="form-label">Prénom:
+					{{ app.user.firstname }}</label>
+			</div>
+			<div class="mb-3">
+				<label for="validationCustom02" class="form-label">Nom:
+					{{ app.user.lastname }}</label>
+			</div>
+			<div class="mb-3">
+				<label for="validationCustomUsername" class="form-label ">Email:
+					{{ app.user.email }}</label>
+
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}
