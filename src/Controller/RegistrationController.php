@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 class RegistrationController extends AbstractController
 {
-    #[Route('/register', name: 'app_register')]
+    #[Route('/login', name: 'app_login')]
     public function register(
         Request $request,
         UserPasswordHasherInterface $userPasswordHasher,
@@ -57,7 +57,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('login/index.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }

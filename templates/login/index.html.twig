@@ -5,9 +5,44 @@
 {% endblock %}
 
 {% block body %}
-	{% if error %}
-		<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-	{% endif %}
+<h1 class="visually-hidden">Inscription</h1>
+    <div class="my-auto mx-auto w-100  ">
+        <div class=" mx-auto   col-10 offset-lg-3 col-lg-4  position-relative">
+            <div class=" position-relative    overflow-hidden rounded  z-0">
+             <div class="position-relative bg-black bg-opacity-25  py-4">
+                        <div class="mx-5 my-auto row">
+                            <div class=" col-7 col-lg-9 col-xl-7 mx-auto text-white">
+                                {{ form_errors(registrationForm) }}
+                                {{ form_start(registrationForm) }}
+                                
+                                {{ form_row(registrationForm.firstname, {
+                                    label: "Prénom :"
+                                }) }}
+                                {{ form_row(registrationForm.lastname, {
+                                    label: "Nom :"
+                                }) }}
+                                {{ form_row(registrationForm.email, {
+                                    label: 'E-mail :'
+                                }) }}
+                                {{ form_row(registrationForm.plainPassword, {
+                                    label: 'Mot de passe :'
+                                }) }}
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary ">S'inscrire</button>
+                                </div>
+
+                                {{ form_end(registrationForm) }}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    
 	<h1 class="visually-hidden">Connexion</h1>
 	<div class="my-auto mx-auto w-100 ">
 		<div class=" mx-auto   col-10 offset-lg-3 col-lg-4  position-relative">
@@ -17,7 +52,7 @@
 						<form action="{{ path('app_login') }}" method="post" class=" mb-5 d-flex flex-column align-items-center ">
 							<div class="mb-3">
 								<label class="text-primary-inverse" for="username">Email :</label>
-								<input class="form-control  text-center" type="text" id="username" name="_username" value="{{ last_username }}">
+								<input class="form-control  text-center" type="text" id="username" name="_username" value="">
 							</div>
 							<div class="mb-3">
 								<label class="text-primary-inverse" for="password">Mot de passe :</label>
