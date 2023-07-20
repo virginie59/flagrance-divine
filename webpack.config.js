@@ -54,7 +54,7 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
@@ -70,17 +70,15 @@ Encore
     //.autoProvidejQuery()
 ;
 
-module.exports = Encore.getWebpackConfig();
-
-const path = require('path');
-
-module.exports = {
-  output: {
-    filename: 'my-first-webpack.bundle.js',
-  },
-  module: {
-    rules: [{ test: /\.txt$/, use: 'raw-loader' }],
- 
-    mode: 'production',
-  },
+const fullConfig = Encore.getWebpackConfig();
+fullConfig.devServer = {
+    headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+    },
+    watchFiles: {
+        paths: ['templates/**/*.html.twig']
+    }
 };
+module.exports = fullConfig;
