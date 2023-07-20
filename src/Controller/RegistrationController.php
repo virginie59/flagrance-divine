@@ -2,17 +2,19 @@
 
 namespace App\Controller;
 
+
 use App\Entity\User;
+use Symfony\Component\Mime\Email;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 class RegistrationController extends AbstractController
 {
@@ -37,7 +39,7 @@ class RegistrationController extends AbstractController
             );
             $this->addFlash(
                 'success',
-                'Votre compte à bien été crée, rendez vous sur la page "login" pour vous connecter.'
+                'Votre compte à bien été crée, rendez vous sur la page "connexion" pour vous connecter.'
             );
 
             $entityManager->persist($user);
@@ -46,9 +48,9 @@ class RegistrationController extends AbstractController
             $email = (new Email())
                 ->from($this->getParameter('mailer_from'))
                 ->to($user->getEmail())
-                ->subject('Bienvenue sur ART-AFAC !')
+                ->subject('Bienvenue sur Flagrance Divine !')
                 ->html('<p> Votre compte à bien été crée,
- vous pouvez désormais vous connecter et profiter des fonctionnalités de notre site ! </p>');
+ vous pouvez désormais vous connecter et profiter de notre site ! </p>');
 
             $mailer->send($email);
 
