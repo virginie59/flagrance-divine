@@ -1,3 +1,7 @@
+.mid-link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
 #checkbox {
     display: none;
   }
@@ -54,5 +58,15 @@
   
   #checkbox:checked + .toggle {
     transition-duration: .5s;
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
   }
+  nav{
+    position: fixed;
+    transform: translateX(100%);
+    will-change: transform;
+    display: flex;
+    justify-content: end
+  }
+nav ul{
+    list-style-type: none;
+}

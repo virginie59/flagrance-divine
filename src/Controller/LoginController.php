@@ -16,14 +16,15 @@ class LoginController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
 
         $lastUsername = $authenticationUtils->getLastUsername();
-        return $this->redirectToRoute('app_home', [
+        return $this->render('app_home', [
             'last_username' => $lastUsername,
             'error' => $error
         ]);
+        
     }
     #[Route('/logout', name: 'app_logout')]
     public function logout(): Response
     {
-        return $this->redirectToRoute('app_profil');
+        return $this->redirectToRoute('app_home');
     }
 }

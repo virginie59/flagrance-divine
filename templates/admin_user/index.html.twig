@@ -15,7 +15,6 @@
 					<th>Mot de passe</th>
 					<th>Prénom</th>
 					<th>Nom</th>
-					<th>Avatar</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -28,10 +27,10 @@
 						<td>{{ user.password }}</td>
 						<td>{{ user.firstname }}</td>
 						<td>{{ user.lastname }}</td>
-						<td>{{ user.avatar }}</td>
+						
 						<td>
 							<a class="btn btn-primary my-1" href="{{ path('app_admin_user_show', {'id': user.id}) }}">Aperçu</a>
-							<a class="btn btn-info" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Editer</a>
+							<a class="btn btn-primary-inverse" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Editer</a>
 						</td>
 					</tr>
 				{% else %}

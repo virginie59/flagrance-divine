@@ -6,24 +6,26 @@
 {% block body %}
 
 
-<h2 class="text-black">Mon profil</h2></section>{% if app.user %}
-<section class="container">
-	<div class="row mx-3">
-		<div class="col-lg-4 offset-lg-4 mt-3 bg-primary-inverse p-3 border-2 rounded text-center">
+	<h2 class="text-black text-center mt-3">Mon profil</h2>
 
-			<div class=" mb-3">
-				<label for="validationCustom01" class="form-label">Prénom:
-					{{ app.user.firstname }}</label>
-			</div>
-			<div class="mb-3">
-				<label for="validationCustom02" class="form-label">Nom:
-					{{ app.user.lastname }}</label>
-			</div>
-			<div class="mb-3">
-				<label for="validationCustomUsername" class="form-label ">Email:
-					{{ app.user.email }}</label>
+	<section class="container rectangle border rounded bg-primary-inverse w-50 m-auto p-3 mt-3 text-center fs-2">
+		<div class="row mx-3">
+			<div class="col-lg-4 offset-lg-4 bg-primary-inverse p-3 border-2 rounded text-center">
+				{% if app.user %}
+					<div class=" mb-3">
+						<label for="validationCustom01" class="form-label">Prénom:
+							{{ app.user.firstname }}</label>
+					</div>
+					<div class="mb-3">
+						<label for="validationCustom02" class="form-label">Nom:
+							{{ app.user.lastname }}</label>
+					</div>
+					<section class="mb-3">
+						<label for="validationCustomUsername" class="form-label ">Email:
+							{{ app.user.email }}</label>
 
-			{% endif %}
-		</div>
-	</div>
-{% endblock %}
+					{% endif %}
+				</div>
+			</div>
+		</section>
+	{% endblock %}

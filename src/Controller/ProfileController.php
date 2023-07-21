@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Painting;
-use App\Repository\PaintingRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,9 +13,11 @@ class ProfileController extends AbstractController
 {
     #[Route('/', name: 'profil')]
 
-    public function index(): Response
+    public function index(UserRepository $userRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('profil/index.html.twig', [
+            'user' => $user
         ]);
     }
 }

@@ -1,60 +1,50 @@
-<nav class="navbar navbar-expand-lg bg-primary justify-content-center p-0">
-	<div class="container-fluid flex-column flex-lg-row">
-		<img class="logo" src="{{ asset('build/images/logo.png') }}" alt="Logo">
-	</div>
-	<div class="navdown collapse navbar-collapse justify-content-start" id="navbarNavDropdown">
-		<ul class="navbar-nav mt-2 d-flex flex-row justify-content-around ">
-			<li class="nav-item">
-				<a class=" mid-link nav-link active px-2 px-4 text-primary-inverse" aria-current="page" href="{{ path('app_login') }}">Compte</a>
-			</li>
-			<li class="nav-item">
-				<a class="mid-link nav-link text-primary-inverse px-2 px-4" href="#">Panier</a>
-			</li>
-		</ul>
+<header class="bg-primary">
+	<div>
+		<i class="bi bi-person-circle m-3"></i>
+		<a class=" text-primary-inverse m-3" href="{{ path('app_login') }}">Compte</a><br>
+		<i class="bi bi-cart m-3"></i>
+		<a class=" m-3 text-primary-inverse " href="#">Panier</a>
+
 	</div>
 	<div class="text-center text-primary-inverse">
 		<h1>Flagrance divine</h1>
 	</div>
-    
-	<section class="top-nav m-4  data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false"">
-		<input type="checkbox" id="checkbox">
-		<label for="checkbox" class="toggle">
-			<div class="bars" id="bar1"></div>
-			<div class="bars" id="bar2"></div>
-			<div class="bars" id="bar3"></div>
-		</label>
-		<ul class="dropdown-menu dropdown-menu-center bg-primary-inverse mt-3">
-
-			<li>
-				<a class="dropdown-item text-primary" href="#">Parfum Femme</a>
-			</li>
-			<li>
-				<a class="dropdown-item text-primary" href="#">Parfum Homme</a>
-			</li>
-			<li>
-				<a class="dropdown-item text-primary" href="#">Collection Soins</a>
-			</li>
-			<li>
-				<a class="dropdown-item text-primary" href="#">Collection Maison</a>
-			</li>
-			<li>
-				<a class="dropdown-item text-primary" href="#">Contact</a>
-			</li>
-			<li>
-				<a class="dropdown-item text-primary" href="#">Livre d'or</a>
-			</li>
-
-			<li>
-				<a class="dropdown-item text-primary" href="{{ path('app_admin') }}">Administration</a>
-			</li>
-
-			<li>
-				<hr class="dropdown-divider">
-			</li>
-			<li>
-				<a class="dropdown-item text-primary" href="{{ path('app_logout') }}">Deconnexion</a>
-			</li>
-		</ul>
-        </section>
+	<div class="dropdown m-3">
+		<input type="checkbox" id="checkbox"></input>
+	<label for="checkbox" class="toggle">
+		<div class="bars" id="bar1"></div>
+		<div class="bars" id="bar2"></div>
+		<div class="bars" id="bar3"></div>
+		<nav class="justify-content-center">
+			<ul class=" dropdown-menu-center bg-primary-inverse m-1 p-1">
+				<li>
+					<a class=" dropdown-item" type="button" href="#">Parfum Femme</a>
+				</li>
+				<li>
+					<a class="dropdown-item text-primary" href="#">Parfum Homme</a>
+				</li>
+				<li>
+					<a class="dropdown-item text-primary" href="#">Collection Soins</a>
+				</li>
+				<li>
+					<a class="dropdown-item text-primary" href="#">Collection Maison</a>
+				</li>
+				<li>
+					<a class="dropdown-item text-primary" href="#">Contact</a>
+				</li>
+				<li>
+					<a class=" dropdown-item text-primary" href="#">Livre d'or</a>
+				</li>
+				{% if is_granted('ROLE_ADMIN') %}
+					<li>
+						<a class="dropdown-item text-primary" href="{{ path('app_admin') }}">Administration</a>
+					</li>
+				{% endif %}
+				<li>
+					<a class="dropdown-item text-primary" href="{{ path('app_logout') }}">Deconnexion</a>
+				</li>
+			</ul>
+		</nav>
 	</div>
 </nav>
+</header>
