@@ -16,6 +16,7 @@ class ProfileController extends AbstractController
     public function index(UserRepository $userRepository): Response
     {
         $user = $this->getUser();
+        
         return $this->render('profil/index.html.twig', [
             'user' => $user
         ]);

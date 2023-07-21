@@ -62,7 +62,7 @@
   }
   nav{
     position: fixed;
-    transform: translateX(100%);
+    transform: translateX(-100%);
     will-change: transform;
     display: flex;
     justify-content: end
