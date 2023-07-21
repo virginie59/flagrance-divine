@@ -53,12 +53,11 @@ class RegistrationController extends AbstractController
  vous pouvez désormais vous connecter et profiter de notre site ! </p>');
 
             $mailer->send($email);
-
-            return $this->redirectToRoute('app_home');
-        }
-
-        return $this->render('profil/index.html.twig', [
-            'registrationForm' => $form->createView(),
-        ]);
-    }
+ return $this->redirectToRoute('app_profil');
+            
+        
+     }   
+   return $this->render('login/index.html.twig', [
+            'registrationForm' => $form->createView(),]);
+}
 }
