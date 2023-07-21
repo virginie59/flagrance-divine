@@ -1,7 +1,4 @@
-.mid-link:hover {
-    text-decoration: underline;
-    font-weight: bold;
-}
+
 #checkbox {
     display: none;
   }
@@ -61,12 +58,23 @@
     transform: rotate(-180deg);
   }
   nav{
-    position: fixed;
+    position: absolute;
     transform: translateX(-100%);
-    will-change: transform;
+    will-change: auto;
     display: flex;
-    justify-content: end
+    justify-content: end;
+    
   }
 nav ul{
     list-style-type: none;
+    transform: rotateX(180deg);
+}
+nav li{
+    transform: rotateY(-180deg);
+}
+nav a{
+    font-size: 1rem;
+}
+#checkbox:checked+label~nav{
+    transform: unset;
 }

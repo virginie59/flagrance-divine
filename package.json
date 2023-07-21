@@ -4,6 +4,7 @@
         "@babel/preset-env": "^7.16.0",
         "@symfony/webpack-encore": "^4.0.0",
         "core-js": "^3.23.0",
+        "file-loader": "^6.0.0",
         "regenerator-runtime": "^0.13.9",
         "sass": "^1.64.0",
         "sass-loader": "^13.0.0",
@@ -20,6 +21,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.0",
         "bootstrap-icons": "^1.10.5",
         "loader": "^2.1.1"
