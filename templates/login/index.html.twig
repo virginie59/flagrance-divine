@@ -5,71 +5,25 @@
 {% endblock %}
 
 {% block body %}
-<h1 class="text-center m-3">Inscription</h1>
-    <div class="my-auto mx-auto w-100  ">
-        <div class=" mx-auto   col-10 offset-lg-3 col-lg-4  position-relative">
-            <div class=" position-relative    overflow-hidden rounded  z-0">
-             <div class="position-relative bg-primary-inverse  py-4">
-                        <div class="mx-5 my-auto row ">
-                            <div class=" col-7 col-lg-9 col-xl-7 mx-auto text-secondary">
-                                {{ form_errors(registrationForm) }}
-                                {{ form_start(registrationForm) }}
-                                
-                                {{ form_row(registrationForm.firstname, {
-                                    label: "Prénom :"
-                                }) }}
-                                {{ form_row(registrationForm.lastname, {
-                                    label: "Nom :"
-                                }) }}
-                                {{ form_row(registrationForm.email, {
-                                    label: 'E-mail :'
-                                }) }}
-                                {{ form_row(registrationForm.plainPassword, {
-                                    label: 'Mot de passe :'
-                                }) }}
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button type="submit" class="btn btn-primary ">S'inscrire</button>
-                                </div>
-
-                                {{ form_end(registrationForm) }}
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
+<form class="form_main w-25 d-flex align-items-center bg-primary m-2 bg-primary-inverse rounded" action="{{ path('app_login') }}">
+    <p class="heading">Login</p>
+    <div class="inputContainer">
+      <i class="bi bi-at"></i>  
+    <input placeholder="Email" id="email" class="inputField" type="text" value: "last_username">
     </div>
-    <div>
-	<h1 class=" text-center text-secondary m-3">Connexion</h1>
+    
+<div class="inputContainer">
+    <i class="bi bi-lock-fill"></i>
+     <input class="inputField" placeholder="Password" type="password" id="password" name="_password">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+</div>
+              
+           
+<button class= "bg-primary" id="button">Submit</button>
+    <div class="signupContainer">
+        <p>Don't have any account?</p>
+        <a href="{{ path('app_registration') }} ">Sign up</a>
     </div>
-	<div class="my-auto mx-auto w-100 mb-3 ">
-		<div class=" mx-auto   col-10 offset-lg-3 col-lg-4  position-relative">
-			<div class=" position-relative    overflow-hidden rounded  z-0">
-				<div class="bg-primary-inverse">
-					<div class="position-relative py-3 ">
-						<form action="{{ path('app_login') }}" method="post" class=" mb-3 d-flex flex-column align-items-center ">
-							<div class="mb-3">
-								<label class="text-secondary" for="username">Email :</label>
-								<input class="form-control  text-center" type="text" id="username" name="_username"
-                                       value="">
-							</div>
-							<div class="mb-3">
-								<label class="text-secondary" for="password">Mot de passe :</label>
-								<input class="form-control text-center" type="password" id="password" name="_password">
-								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-							</div>
-							<button class="btn btn-primary mt-3" type="submit">Se connecter</button>
-						</form>
+</form>
 
-					</div>
-
-				</div>
-
-
-			</div>
-		</div>
-	</div>
 {% endblock %}

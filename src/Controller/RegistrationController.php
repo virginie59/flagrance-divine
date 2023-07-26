@@ -16,9 +16,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
+
 class RegistrationController extends AbstractController
 {
-    #[Route('/login', name: 'app_login')]
+    #[Route('/registration', name: 'app_registration')]
     public function register(
         Request $request,
         UserPasswordHasherInterface $userPasswordHasher,
@@ -39,7 +40,7 @@ class RegistrationController extends AbstractController
             );
             $this->addFlash(
                 'success',
-                'Votre compte à bien été crée, rendez vous sur la page "connexion" pour vous connecter.'
+                'Votre compte à bien été crée, rendez vous sur la page "compte" pour vous connecter.'
             );
 
             $entityManager->persist($user);
@@ -53,11 +54,12 @@ class RegistrationController extends AbstractController
  vous pouvez désormais vous connecter et profiter de notre site ! </p>');
 
             $mailer->send($email);
- return $this->redirectToRoute('app_profil');
-            
-        
-     }   
-   return $this->render('login/index.html.twig', [
-            'registrationForm' => $form->createView(),]);
-}
+
+
+            return $this->render('app_home');
+        }
+        return $this->render('registration/index.html.twig', [
+            'registrationForm' => $form->createView(),
+        ]);
+    }
 }
