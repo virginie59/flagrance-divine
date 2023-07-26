@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Produit;
 use App\Repository\ProduitRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ProduitController extends AbstractController
 {
     #[Route('/ParfumF', name: 'app_produit_ParfumF')]
-    public function index(ProduitRepository $produitRepository): Response
+    public function index(ProduitRepository $produitRepository, Produit $produit): Response
     {
         $produits = $produitRepository->findAll();
 
@@ -23,7 +24,7 @@ class ProduitController extends AbstractController
     }
 
    #[Route('/ParfumH', name: 'app_produit_ParfumH')]
-    public function edit(ProduitRepository $produitRepository): Response
+    public function edit(ProduitRepository $produitRepository, Produit $produit): Response
     {
         $produits = $produitRepository->findAll();
 
@@ -34,7 +35,7 @@ class ProduitController extends AbstractController
         ]);
     }
     #[Route('/CollectionSoins', name: 'app_produit_CollectionSoins')]
-    public function show(ProduitRepository $produitRepository): Response
+    public function show(ProduitRepository $produitRepository, produit $produit): Response
     {
         $produits = $produitRepository->findAll();
 
