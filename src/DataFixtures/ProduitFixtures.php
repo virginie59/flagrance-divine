@@ -17,18 +17,9 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
     }
     public function load(ObjectManager $manager): void
     {
-        $uploadProduitDir = $this->parameterBag->get('upload_produit_directory');
-
-        if (!is_dir(__DIR__ . '/../../public' . $uploadProduitDir)) {
-            mkdir(__DIR__ . '/../../public' . $uploadProduitDir, recursive: true);
-        }
         $faker = Factory::create();
 
         for ($i = 0; $i<20; $i ++) {
-copy(
-    __DIR__ . '/data/produit/' . 'flacon.jpeg',
-    __DIR__ . '/../../public' . $uploadProduitDir . '/' . 'flacon.jpeg'
-);
 
        $produit = new Produit();
        $produit ->setname ($faker->sentence(3));

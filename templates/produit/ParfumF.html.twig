@@ -6,7 +6,7 @@
 {% block body %}
  
 <div class= "rectangle border rounded bg-primary-inverse w-50 m-auto p-3 mt-3 text-center fs-2">
-
+{% for produit in produits %}
 <div class="contain" style="width: 18rem">
   <div class="card-body m-3">
     <img class=" galery-image w-100 h-100 object-fit-cover  "
@@ -14,6 +14,7 @@
     <h5 class="card-title"></h5>
   </div>
   </div>
+  {% endfor %}
   </div>
 
 {% endblock %}

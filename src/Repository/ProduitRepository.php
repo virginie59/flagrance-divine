@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Produit;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Produit>
@@ -20,10 +21,30 @@ class ProduitRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Produit::class);
     }
+    public function save(Produit $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
 
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+    public function remove(Produit $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+    public function queryFindAll(): Query
+    {
+
+        return $this->createQueryBuilder('p')->getQuery();
+    }
 //    /**
 //     * @return Produit[] Returns an array of Produit objects
-//     */
+//     
 //    public function findByExampleField($value): array
 //    {
 //        return $this->createQueryBuilder('p')
