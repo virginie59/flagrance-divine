@@ -4,17 +4,35 @@
 {% endblock %}
 
 {% block body %}
- 
-<div class= "rectangle border rounded bg-primary-inverse w-50 m-auto p-3 mt-3 text-center fs-2">
+	
+		<div class="rectangle border rounded bg-primary-inverse ">
 {% for produit in produits %}
-<div class="contain" style="width: 18rem">
-  <div class="card-body m-3">
-    <img class=" galery-image w-100 h-100 object-fit-cover  "
-                             src=" {{ asset('build/images/flacon.jpeg') }}"
-    <h5 class="card-title"></h5>
-  </div>
-  </div>
-  {% endfor %}
-  </div>
+			<div class="card bg-primary overflow-hidden text-center w-50">
+				<div class="card-content card-front bg-white mt-5 pb-4">
+					<img class="imag mt-4" src="{{ asset('build/images/flacon.jpeg') }}" alt="flacon de parfum"/>
+					<div class="card-body m-2">
+						<h3>{{produit.name}}</h3>
 
+					</div>
+				</div>
+				<div class="card-content card-back bg-white mt-4">
+
+					<div class="card-body">
+						<h2>{{produit.name}}</h2>
+						<h3>Prix:
+							{{produit.prix}}</h3>
+							<h3>Quantité:
+							{{produit.quantite}}
+							mL</h3>
+						<h3>	Composition:
+							{{produit.composition}}</h3>
+							<h3>Résumé:
+							{{produit.resume}}</h3>
+					</div>
+				</div>
+			</div>
+      {% endfor %}
+
+		</div>
+	
 {% endblock %}

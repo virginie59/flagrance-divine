@@ -34,7 +34,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return[
-            CategoryFixtures::class,
+            CategorieFixtures::class,
         ];
     }
 }
