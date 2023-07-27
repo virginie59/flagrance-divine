@@ -1,0 +1,24 @@
+.card{
+    height: 75vmin;
+    position: relative;
+    margin-left: 25rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+.card-content {
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, .5);
+    transition: all 2s;
+    position:absolute;
+    width:80%;
+    margin-left: 5rem;
+    backface-visibility: hidden;
+}
+.card-back{
+    transform:rotateY(180deg);//to rotate it towards right
+}
+.card:hover .card-front {
+    transform: rotateY(-180deg); //to rotate it towards left
+}
+.card:hover .card-back {
+    transform: rotateY(0);// show backside of card on hover
+}
