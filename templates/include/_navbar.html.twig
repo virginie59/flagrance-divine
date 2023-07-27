@@ -42,9 +42,11 @@
 		<a class="logo-link" href="{{ path('app_home') }}">
             <img class="logo w-25 h-50 border border-primary-inverse" src="{{ asset('build/images/logo.png') }}" alt="Logo">
         </a>
-
-			
 		</div>
+		 {% if app.user %}
+                    <span
+                       class="my-auto me-3 text-white text-decoration-none">Bonjour {{ app.user.firstname }}</span>
+                {% endif %}
 		<div class= "d-flex justify-content-lg-center">
 			<i class="bi bi-person-circle fs-4 m-3"></i>
 			<a class=" fs-4 text-primary-inverse m-3 fs-4" href="{{ path('app_login') }}">Compte</a><br>
